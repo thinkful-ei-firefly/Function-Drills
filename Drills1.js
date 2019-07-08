@@ -1,6 +1,10 @@
 'use strict';
 
 function createGreeting(name, age) {
+  if(typeof(name) !== 'string' || typeof(age) !== 'number'){
+    throw new Error('Arguments not valid');
+  }
+
   let yearOfBirth = getYearOfBirth(age);
   return `Hi, I'm ${name} and I'm ${age} years old. I was born in the year ${yearOfBirth}`;
 }
