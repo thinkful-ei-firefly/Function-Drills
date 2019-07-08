@@ -87,6 +87,28 @@ function daysInMonth(month, leapYear = false) {
   return `${month} has ${days} days...`;
 }
 
+
+function rockPaperScissors (input) {
+
+  if (typeof(input) !=='number' || input <1 || input >3) {
+    throw new Error('Please input a valid number between 1 and 3');
+  }
+
+  const randomNo = Math.floor(Math.random() * 3) + 1;
+
+  if (input === randomNo) {
+    return 'tie';
+  } else if (input > randomNo && input !==1) {
+    return 'you win!'
+  } else if (input === 1 && randomNo === 3) {
+    return 'you win!';
+  }
+  else {
+    return 'you lose'
+  }
+}
+
+
 // console.log(jediName('cody', 'oberholtzer'));
 // beyond(Infinity);
 // beyond(10);
@@ -98,5 +120,15 @@ function daysInMonth(month, leapYear = false) {
 try{
   console.log(daysInMonth('octemper', true));
 } catch(e){
+  console.error(e);
+}
+
+try {
+console.log(rockPaperScissors(1));
+console.log(rockPaperScissors(2));
+console.log(rockPaperScissors(3));
+console.log(rockPaperScissors(5));
+console.log(rockPaperScissors('potato'));
+} catch(e) {
   console.error(e);
 }
