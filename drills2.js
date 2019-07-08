@@ -40,25 +40,63 @@ function decode(word) {
   return letter;
 }
 
-function sentenceDecode (sentence) {
+function sentenceDecode(sentence) {
   let words = sentence.split(' ');
   let decoded = '';
 
-  for (let i=0; i<words.length; i++) {
+  for (let i = 0; i < words.length; i++) {
     decoded += decode(words[i]);
   }
   return decoded;
 
- }
+}
 
+function daysInMonth(month, leapYear = false) {
 
+  let days = 0;
+  month = month.toLowerCase();
 
+  switch (month) {
+  case 'september':
+  case 'april':
+  case 'june':
+  case 'november':
+    days = 30;
+    break;
 
-console.log(jediName('cody', 'oberholtzer'));
-beyond(Infinity);
-beyond(10);
-beyond(-10);
-beyond(0);
-console.log(decode('hello'));
-console.log(decode('alpha'));
-console.log(sentenceDecode('craft block argon meter bells brown croon droop'));
+  case 'january':
+  case 'march':
+  case 'may':
+  case 'july':
+  case 'august':
+  case 'october':
+  case 'december':
+    days = 31;
+    break;
+
+  case 'february':
+    if (leapYear){
+      days = 29;
+    } else {
+      days = 28;
+    }
+    break;
+  default:
+    throw new Error('Must provide a valid month.');
+  }
+  return `${month} has ${days} days...`;
+}
+
+// console.log(jediName('cody', 'oberholtzer'));
+// beyond(Infinity);
+// beyond(10);
+// beyond(-10);
+// beyond(0);
+// console.log(decode('hello'));
+// console.log(decode('alpha'));
+// console.log(sentenceDecode('craft block argon meter bells brown croon droop'));
+try{
+  console.log(daysInMonth('octemper', true));
+} catch(e){
+  console.error(e);
+}
