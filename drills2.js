@@ -40,6 +40,20 @@ function decode(word) {
   return letter;
 }
 
+function sentenceDecode (sentence) {
+  let words = sentence.split(' ');
+  let decoded = '';
+
+  for (let i=0; i<words.length; i++) {
+    decoded += decode(words[i]);
+  }
+  return decoded;
+
+ }
+
+
+
+
 console.log(jediName('cody', 'oberholtzer'));
 beyond(Infinity);
 beyond(10);
@@ -47,3 +61,4 @@ beyond(-10);
 beyond(0);
 console.log(decode('hello'));
 console.log(decode('alpha'));
+console.log(sentenceDecode('craft block argon meter bells brown croon droop'));
